@@ -59,7 +59,7 @@ namespace intercept::client {
      */
     class EHIdentifierHandle {
     public:
-        constexpr EHIdentifierHandle() noexcept {}
+        constexpr EHIdentifierHandle() = default;
         EHIdentifierHandle(EHIdentifier ident, std::function<void(EHIdentifier&)> onDelete) : handle(std::make_shared<impl>(std::move(ident), std::move(onDelete))) {}
         EHIdentifierHandle& operator=(const EHIdentifierHandle& other){
             //This is extra protection against deleting already deleted EHs.
